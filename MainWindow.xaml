@@ -1,0 +1,102 @@
+﻿<Window x:Class="list_view_chats.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:list_view_chats"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid><!--start of main parent grid-->
+        <!--grid for the username page-->
+        <Grid
+           x:Name="name_grid" 
+            Visibility="Visible"
+            ><!--start of username grid-->
+            
+            <!--text box to prompt the user-->
+
+            <TextBox 
+             Height="50"  
+             Width="350"
+             x:Name="user_name"
+                />
+            <!--button to submit username-->
+            <Button  
+                Height="50"
+                Width="350"
+                Margin="0,150,0,0"
+                Content="submit username"
+                Click="submit_name"
+                
+               />
+
+        </Grid> <!--end of username grid-->
+            <!--Grid for the chat page-->
+        
+        
+        <Grid  
+               x:Name="Chat_Grid"
+                Visibility="Hidden"
+            ><!--start of chat page grid-->
+            
+            <!--list view to show chats-->
+
+            <ListView
+                
+               Height="350"
+               Width="400"
+               Margin="0,0,0,70"
+               x:Name="chats"
+                
+                />
+            
+            <!--the question TextBox-->
+            <TextBox
+               Height="50"
+               Width="200"
+               Margin="-200,350,0,0"
+               x:Name="question"
+                
+                />
+            
+            <!-- Button to submit the question -->
+            <Button
+               Height="50"
+               Width="200"
+               Margin="200,350,0,0"
+              
+                />
+            <!-- Add these buttons inside your chats_grid, near your send button -->
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5">
+                <!-- Your existing question textbox -->
+                <TextBox x:Name="user_question" Width="300" Height="35" Margin="5"/>
+
+                <!-- Your existing send button -->
+                <Button x:Name="sendBtn" Content="Send" Click="send" Width="60" Height="35" Margin="5"/>
+
+                <!-- ADD THESE NEW BUTTONS -->
+                <Button x:Name="voiceBtn" Content="🎤" Click="voice_button_click" 
+            Width="50" Height="35" Margin="5" 
+            Background="DarkGreen" Foreground="White" FontSize="16"
+            ToolTip="Click and speak into microphone"/>
+
+                <Button x:Name="recallBtn" Content="🧠 Recall" Click="recall_memory_button_click" 
+            Width="80" Height="35" Margin="5" 
+            Background="Purple" Foreground="White" FontSize="12"
+            ToolTip="Remember what I was interested in"/>
+
+                <Button x:Name="clearBtn" Content="🗑️ Clear" Click="clear_chat_button_click" 
+            Width="80" Height="35" Margin="5" 
+            Background="DarkRed" Foreground="White" FontSize="12"
+            ToolTip="Clear chat history"/>
+
+                <Button x:Name="helpBtn" Content="❓ Help" Click="help_button_click" 
+            Width="80" Height="35" Margin="5" 
+            Background="DarkBlue" Foreground="White" FontSize="12"
+            ToolTip="Show help menu"/>
+            </StackPanel>
+
+        </Grid><!--end of chat page grid-->
+
+    </Grid><!--end of main parent grid-->
+</Window>
